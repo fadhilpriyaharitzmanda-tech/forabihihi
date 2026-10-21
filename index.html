@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KONGRET RIPIT YIR, ABIASOYY! 🎂</title>
+  <meta name="description" content="Website perayaan ulang tahun spesial full screen untuk Abiasoyy.">
+  <meta name="theme-color" content="#E9D5FF">
+
+  <!-- Google Fonts: Fredoka & Quicksand -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Fullscreen Ambient Pastel Background with Floating Hearts -->
+  <div class="ambient-layer" id="ambientLayer" aria-hidden="true">
+    <div class="pastel-gradient-bg"></div>
+    <div class="floating-hearts" id="floatingHeartsContainer"></div>
+  </div>
+
+  <!-- Audio Player (Jamrud - Selamat Ulang Tahun) -->
+  <audio id="birthdayAudio" src="assets/birthday-song.mp3" preload="auto" loop></audio>
+
+  <!-- Top Floating Controls: Fullscreen Toggle & Audio Control -->
+  <header class="top-action-bar" id="topActionBar">
+    <button id="fullscreenBtn" class="action-pill-btn fullscreen-btn" type="button" aria-label="Beralih ke mode layar penuh">
+      <span class="btn-icon">⛶</span>
+      <span id="fullscreenText">Layar Penuh</span>
+    </button>
+    <button id="soundToggleBtn" class="action-pill-btn sound-btn" type="button" aria-label="Nyalakan/matikan lagu Jamrud">
+      <span class="btn-icon">🎵</span>
+      <span id="soundStatusText">Jamrud: Putar Musik</span>
+    </button>
+  </header>
+
+  <!-- =========================================================
+       1. INTRO: HANYA KOTAK KADO SAJA (TANPA TEKS APAPUN)
+       ========================================================= -->
+  <section class="gift-intro-stage active" id="giftIntroStage">
+    <div class="gift-box-wrapper" id="giftBoxWrapper" role="button" tabindex="0" aria-label="Buka Kado">
+      <div class="gift-box" id="giftBox">
+        
+        <!-- Tutup Kado -->
+        <div class="gift-lid" id="giftLid">
+          <div class="lid-ribbon-x"></div>
+          <div class="lid-ribbon-y"></div>
+          <div class="lid-bow">
+            <span class="bow-petal left-petal"></span>
+            <span class="bow-petal right-petal"></span>
+            <span class="bow-knot"></span>
+          </div>
+        </div>
+
+        <!-- Badan Kado -->
+        <div class="gift-body">
+          <div class="body-ribbon-v"></div>
+          <div class="body-ribbon-h"></div>
+        </div>
+
+        <!-- Pendaran Cahaya saat Terbuka -->
+        <div class="gift-burst-glow" id="giftBurstGlow"></div>
+
+        <!-- Bayangan Kado -->
+        <div class="gift-shadow-blur"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       2. FULLSCREEN CELEBRATION STAGE
+       (MUNCUL SETELAH KADO DIBUKA: FOTO MAKSIMAL, LILIN & 3 SISI FOTO)
+       ========================================================= -->
+  <main class="fullscreen-celebration-stage" id="celebrationStage" aria-hidden="true">
+
+    <!-- FOTO SISI 1: SISI KIRI (DILUAR TENGAH / KELUAR SCREEN) -->
+    <aside class="floating-side-panel left-side-panel" id="panelLeftPhotos">
+      
+      <!-- Polaroid Photo 1 (Asli Abiasoyy) -->
+      <div class="floating-photo-card fly-in-left delay-1">
+        <div class="polaroid-pin">📌</div>
+        <div class="polaroid-frame">
+          <img src="assets/photo1.jpg" alt="Foto Abiasoyy 1" class="real-polaroid-img" loading="eager">
+        </div>
+        <p class="polaroid-caption">Abiasoyy Sang Legenda ✨</p>
+      </div>
+
+      <!-- Polaroid Photo 2 (Asli Abiasoyy) -->
+      <div class="floating-photo-card fly-in-left delay-3">
+        <div class="polaroid-pin">🤍</div>
+        <div class="polaroid-frame">
+          <img src="assets/photo2.jpg" alt="Foto Abiasoyy 2" class="real-polaroid-img" loading="eager">
+        </div>
+        <p class="polaroid-caption">Santai Dulu Ga Sih ☕</p>
+      </div>
+
+    </aside>
+
+    <!-- CENTER CELEBRATION HUB: FOTO MAKSIMAL, LILIN-LILIN & LOVE -->
+    <div class="center-stage-container" id="centerStageContainer">
+      
+      <!-- Header Judul Utama -->
+      <div class="hero-text-header">
+        <span class="love-badge-top">🤍 SPECIAL BIRTHDAY FOR ABIASOYY 🤍</span>
+        <h1 class="main-celebration-title">KONGRET RIPIT YIR, ABIASOYY! 🎂</h1>
+      </div>
+
+      <!-- FOTO UTAMA ABIASOYY (MAXIMAL HERO SIZE - TANPA KOTAKAN PEMBATAS) -->
+      <div class="hero-photo-showcase">
+        <div class="hero-photo-frame-wrap" id="heroPhotoWrap">
+          <img id="mainDisplayImg" src="assets/photo3.jpg" alt="Foto Utama Abiasoyy" class="hero-maximal-img" loading="eager" title="Klik untuk ganti foto!">
+          <div class="hero-photo-overlay-tag">
+            <span id="photoMainTag">Best Memory ✦ Abiasoyy 🤍</span>
+          </div>
+        </div>
+        
+        <!-- Thumbnail Switcher Cepat -->
+        <div class="photo-thumbnail-selector">
+          <button class="thumb-nav-btn active" data-src="assets/photo3.jpg" aria-label="Lihat Foto 1">
+            <img src="assets/photo3.jpg" alt="Thumb 1" class="mini-preview-img">
+          </button>
+          <button class="thumb-nav-btn" data-src="assets/photo1.jpg" aria-label="Lihat Foto 2">
+            <img src="assets/photo1.jpg" alt="Thumb 2" class="mini-preview-img">
+          </button>
+          <button class="thumb-nav-btn" data-src="assets/photo2.jpg" aria-label="Lihat Foto 3">
+            <img src="assets/photo2.jpg" alt="Thumb 3" class="mini-preview-img">
+          </button>
+        </div>
+      </div>
+
+      <!-- LILIN-LILIN ULANG TAHUN INTERAKTIF DI TENGAH -->
+      <div class="birthday-candles-altar">
+        <p class="candles-guide-text" id="candlesGuideText">🕯️ Klik lilin untuk tiup & buat harapanmu! 🤍</p>
+        
+        <div class="candles-cluster" id="candlesCluster" role="button" tabindex="0" title="Klik lilin untuk meniupnya!">
+          <div class="individual-candle">
+            <div class="candle-flame-glow flame-active" id="flame1"></div>
+            <div class="candle-body-pipe pipe-pink"></div>
+          </div>
+          <div class="individual-candle">
+            <div class="candle-flame-glow flame-active" id="flame2"></div>
+            <div class="candle-body-pipe pipe-purple"></div>
+          </div>
+          <div class="individual-candle">
+            <div class="candle-flame-glow flame-active" id="flame3"></div>
+            <div class="candle-body-pipe pipe-mint"></div>
+          </div>
+          <div class="individual-candle">
+            <div class="candle-flame-glow flame-active" id="flame4"></div>
+            <div class="candle-body-pipe pipe-yellow"></div>
+          </div>
+          <div class="individual-candle">
+            <div class="candle-flame-glow flame-active" id="flame5"></div>
+            <div class="candle-body-pipe pipe-pink"></div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- /center-stage-container -->
+
+    <!-- FOTO SISI 2: SISI KANAN (DILUAR TENGAH / KELUAR SCREEN) -->
+    <aside class="floating-side-panel right-side-panel" id="panelRightPhotos">
+      
+      <!-- Hanging Photobooth Strip (Berisi Foto-Foto Abiasoyy) -->
+      <div class="hanging-photobooth-strip fly-in-top delay-2">
+        <div class="photostrip-hanger-pin">📎</div>
+        <div class="photostrip-paper">
+          <div class="strip-item-photo">
+            <img src="assets/photo3.jpg" alt="Abiasoyy strip 1" class="strip-img">
+            <span class="strip-label">Birthday Boy 🎂</span>
+          </div>
+          <div class="strip-item-photo">
+            <img src="assets/photo1.jpg" alt="Abiasoyy strip 2" class="strip-img">
+            <span class="strip-label">Level Up ✨</span>
+          </div>
+          <div class="strip-item-photo">
+            <img src="assets/photo2.jpg" alt="Abiasoyy strip 3" class="strip-img">
+            <span class="strip-label">Stay OP 🎮</span>
+          </div>
+        </div>
+        <p class="photostrip-title">Abiasoyy Photostrip 🤍</p>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
